@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using CsvHelper;
 
 namespace FilesIO
 {
@@ -27,12 +28,12 @@ namespace FilesIO
             InitializeComponent();
 
             OpenFileDialog openfileDialog = new OpenFileDialog();
+            openfileDialog.DefaultExt = "*.csv";
             string path;
             if(openfileDialog.ShowDialog() == true)
             {
                 path = openfileDialog.FileName;
                 StreamReader sr = new StreamReader(path, Encoding.Default);
-                textBlock1.Text = sr.ReadToEnd();
 
             }
             
